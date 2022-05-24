@@ -1,0 +1,61 @@
+
+{% extends 'html/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="p-3 m-3">
+        <div class="col-lg-5 rounded mx-auto border pt-4">
+            <div class="text-center col">
+
+                <img
+                src="https://th.bing.com/th/id/Rd51d7c0fde6d96a31538a86cbd57f3c0?rik=%2fTJxRkU2V371QQ&riu=http%3a%2f%2ftechnologyend.com%2fwp-content%2fuploads%2f2015%2f11%2fwhy-shop-online.jpg&ehk=v1KiYT0i5U1ABCRueDSdLqnazh2BdlVD89Z4qXE0Kgs%3d&risl=&pid=ImgRaw" alt=""
+                class="" style="height: 150px;">
+            <hr>
+            </div>
+            <h3 class="alert alert-light rounded-pill" style="text-align:center" >Contact Us</h3>
+            <form action="/contactus" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>First Name*</label>
+                        <input class="form-control" type="text" name="firstname">
+                        <span class="error first_name"></span>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <label>Last Name*</label>
+                        <input class="form-control" type="text" name="lastname">
+                        <span class="error last_name"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Email Address*</label>
+                        <input class="form-control" type="email" name="email">
+                        <span class="error email"></span>
+                    </div>
+                </div>
+
+                <div class="form-group textarea">
+                    <label>Message*</label>
+                    <textarea class="form-control" name="message"></textarea>
+                    <span class="error message"></span>
+                </div>
+
+                <div class="checkbox">
+                    <label for="contact--marketing_signup">
+                        <input type="checkbox" name="subscribe" value="true" id="contact--marketing_signup" class="no-validate">
+                        <span class="check-container"><span class="check-icon"></span></span>
+                        <span class="text-container">
+                            I would like to receive emails containing news content, updates and special offers from your website N Cart. I may opt out at anytime.
+                        </span>
+                    </label>
+                </div>
+                <button class="btn btn-primary sec__main--contact-form-submit-cta">SEND</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
